@@ -18,8 +18,8 @@ export const Inner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ededed;
-    border-radius: var(--border-radius);
+    /* background-color: #ededed;
+    border-radius: var(--border-radius); */
 `
 
 export const Head = styled.div`

@@ -2,7 +2,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
+  --alert: #d25555;
+  --soft-gray: #ededed;
+  --dark-gray: #989898;
   --border-radius: 8px;
 }
 
@@ -24,15 +26,18 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-}
-
-.main {
-  width: 100%;
-  position: relative;
-  padding: .5rem;
 }
