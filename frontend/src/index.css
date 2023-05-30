@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  --main-blue: rgb(0 173 239);
+  --main-blue: #00ADEF;
   --alert: #d25555;
   --soft-gray: #ededed;
   --dark-gray: #989898;
@@ -13,16 +15,13 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  letter-spacing: 2px;
+  line-height: 1.4;
 }
 
 button {

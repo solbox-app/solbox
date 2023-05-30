@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const NotificationBanner = styled.div`
-    background-color: #ededed;
+    background-color: #fff;
+    box-shadow: var(--shadow);
     padding: 1rem;
     border-radius: var(--border-radius);
 `

@@ -47,8 +47,23 @@ export const Links = styled.nav`
 `
 
 export const LinkContainer = styled(Link)`
+    position: relative;
     display: flex;
-    margin-bottom: 1rem;
+    /* background-color: ${({active}) => active ? 'var(--soft-gray)' : 'transparent'}; */
+    padding: .5rem 0;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%);
+        border-radius: 500px;
+        width: 5px;
+        height: 5px;
+        background-color: var(--main-blue);
+        display: ${({active}) => active ? 'block' : 'none'};
+    }
 `
 
 export const LinkIcon = styled.i`
@@ -73,4 +88,5 @@ export const Footer = styled.div`
 export const FooterLink = styled(Link)`
     font-size: .7rem;
     margin-bottom: .2rem;
+    letter-spacing: .5px;
 `

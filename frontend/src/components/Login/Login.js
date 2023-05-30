@@ -16,7 +16,8 @@ import {
     Button,
     TooltipIcon,
     TooltipText,
-    Logo
+    Logo,
+    Note,
 } from './Elements'
 import Loader from '../Loader/Loader'
 
@@ -30,24 +31,42 @@ const Login = () => {
         email: Yup.string().email('Ingrese un e-mail adecuado').required('Ingrese un e-mail'),
         password: Yup.string().required('Ingrese una contraseña'),
     })
+    const signinInitialValues = {
+        email: '',
+        password: '',
+    }
     const signupSchema = Yup.object({
         email: Yup.string().email('Ingrese un correo adecuado').required('Ingrese un correo'),
         password: Yup.string().required('Ingrese una contraseña'),
         api: Yup.string().required('Ingrese clave de API'),
+        apiSecret: Yup.string().required('Ingrese su API secret'),
     })
-    const yupSchema = type === 'signin' ? signinSchema : signupSchema
+    const signupInitialValues = {
+        email: '',
+        password: '',
+        api: '',
+        apiSecret: ''
+    }
+    const forgotSchema = Yup.object({
+        email: Yup.string().email('Ingrese un correo adecuado').required('Ingrese un correo'),
+    })
+    const forgotInitialValues = {
+        email: '',
+    }
+    const yupSchema = type === 'signin' ? signinSchema : type === 'signup' ? signupSchema : forgotSchema
+    const initialValues = type === 'signin' ? signinInitialValues : type === 'signup' ? signupInitialValues : forgotInitialValues
 
     const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: '',
-            api: '',
-        },
+        initialValues: initialValues,
         validationSchema: yupSchema,
         onSubmit: (values, { resetForm }) => {
             console.log(values)
 
             setLoading(true)
+
+            if (type === 'forgot') {
+                console.log('SEND EMAIL')
+            }
 
             // Testing
             setTimeout(() => {
@@ -67,10 +86,54 @@ const Login = () => {
         setType(t)
     }
 
+    if (type === 'forgot') {
+        return (
+            <Container>
+                <FormContainer>
+                    <Logo src="assets/logos/solbox-app.png" />
+                    <Note>Ingrese un correo para recibir un mail de restablecimiento de contraseña</Note>
+                    <Form noValidate onSubmit={formik.handleSubmit}>
+                        <InputContainer>
+                            <Input
+                                id="email"
+                                type="text"
+                                name="email"
+                                value={formik.values.email}
+                                onChange={formik.handleChange}
+                                placeholder="Correo electrónico"
+                                aria-label="email"
+                                aria-required="true"
+                            />
+                            {
+                                formik.errors.email &&
+                                formik.touched.email &&
+                                <Error>{formik.errors.email}</Error>
+                            }
+                        </InputContainer>
+                        <ButtonsContainer>
+                            <Button type="submit" disabled={loading}>
+                                <PrimaryButton>
+                                {
+                                    loading ?
+                                        <Loader /> :
+                                        'Enviar'
+                                }
+                                </PrimaryButton>
+                            </Button>
+                            <Button type="button" onClick={() => setType('signin')} disabled={loading}>
+                                <SecondaryButton>Volver</SecondaryButton>
+                            </Button>
+                        </ButtonsContainer>
+                    </Form>
+                </FormContainer>
+            </Container>
+        )
+    }
+
     return (
         <Container>
             <FormContainer>
-            <Logo src="assets/logos/solbox-app.png" />
+                <Logo src="assets/logos/solbox-app.png" />
                 <Form noValidate onSubmit={formik.handleSubmit}>
                     <InputContainer>
                         <Input
@@ -79,7 +142,7 @@ const Login = () => {
                             name="email"
                             value={formik.values.email}
                             onChange={formik.handleChange}
-                            placeholder="e-mail"
+                            placeholder="Correo electrónico"
                             aria-label="email"
                             aria-required="true"
                         />
@@ -108,39 +171,51 @@ const Login = () => {
                     </InputContainer>
                     {
                         type === 'signup' ?
-                        <InputContainer>
-                            <Input
-                                id="api"
-                                type="text"
-                                name="api"
-                                value={formik.values.api}
-                                onChange={formik.handleChange}
-                                placeholder="Clave de API"
-                                aria-label="api"
-                                aria-required="true"
-                            />
-                            {
-                                formik.errors.api &&
-                                formik.touched.api &&
-                                <Error>{formik.errors.api}</Error>
-                            }
-                            <TooltipIcon><AiFillQuestionCircle /></TooltipIcon>
-                            <TooltipText>Se encuentra en la caja del producto</TooltipText>
-                        </InputContainer>
-                        : null
+                            <InputContainer>
+                                <Input
+                                    id="api"
+                                    type="text"
+                                    name="api"
+                                    value={formik.values.api}
+                                    onChange={formik.handleChange}
+                                    placeholder="Clave de API"
+                                    aria-label="api"
+                                    aria-required="true"
+                                />
+                                {
+                                    formik.errors.api &&
+                                    formik.touched.api &&
+                                    <Error>{formik.errors.api}</Error>
+                                }
+                                <TooltipIcon><AiFillQuestionCircle /></TooltipIcon>
+                                <TooltipText>Se encuentra en la caja del producto</TooltipText>
+                            </InputContainer>
+                            : null
+                    }
+                    {
+                        type === 'signup' ?
+                            <InputContainer>
+                                <Input
+                                    id="apiSecret"
+                                    type="text"
+                                    name="apiSecret"
+                                    value={formik.values.apiSecret}
+                                    onChange={formik.handleChange}
+                                    placeholder="API Secret"
+                                    aria-label="apiSecret"
+                                    aria-required="true"
+                                />
+                                {
+                                    formik.errors.apiSecret &&
+                                    formik.touched.apiSecret &&
+                                    <Error>{formik.errors.apiSecret}</Error>
+                                }
+                                <TooltipIcon><AiFillQuestionCircle /></TooltipIcon>
+                                <TooltipText>Se encuentra en la caja del producto</TooltipText>
+                            </InputContainer>
+                            : null
                     }
                     <ButtonsContainer dis={loading}>
-                        <Button type="submit" disabled={loading}>
-                            <PrimaryButton>
-                                {
-                                    loading ?
-                                    <Loader /> :
-                                    type === 'signin' ?
-                                    'Ingresar' :
-                                    'Registrarse'
-                                }
-                            </PrimaryButton>
-                        </Button>
                         <Button type="button" onClick={handleClick} disabled={loading}>
                             <SecondaryButton>
                                 {
@@ -150,8 +225,26 @@ const Login = () => {
                                 }
                             </SecondaryButton>
                         </Button>
+                        <Button type="submit" disabled={loading}>
+                            <PrimaryButton>
+                                {
+                                    loading ?
+                                        <Loader /> :
+                                        type === 'signin' ?
+                                            'Ingresar' :
+                                            'Registrarse'
+                                }
+                            </PrimaryButton>
+                        </Button>
                     </ButtonsContainer>
                     <GeneralError></GeneralError>
+                    {
+                        type === 'signin' ?
+                            <Button type="button" onClick={() => setType('forgot')} disabled={loading}>
+                                <SecondaryButton>Olvidé mi contraseña</SecondaryButton>
+                            </Button>
+                            : null
+                    }
                 </Form>
             </FormContainer>
         </Container>

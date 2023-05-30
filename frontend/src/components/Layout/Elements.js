@@ -5,5 +5,9 @@ export const Container = styled.div`
     grid-template-columns: 10rem 3fr 4rem;
     grid-gap: 1rem;
     position: relative;
-    padding-top: 1rem;
+    padding-top: 2rem;
+`
+
+export const Main = styled.main`
+    margin-left: 2rem;
 `

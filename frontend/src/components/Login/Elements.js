@@ -14,8 +14,7 @@ export const Container = styled.section`
 `
 
 export const FormContainer = styled.div`
-    width: 20rem;
-    height: 20rem;
+    width: 25rem;
     padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
@@ -38,6 +37,7 @@ export const Form = styled.form`
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
+    width: 100%;
 `
 
 export const InputContainer = styled.div`
@@ -76,6 +76,11 @@ export const ButtonsContainer = styled.div`
 `
 
 export const Button = styled.button``
+
+export const Note = styled.p`
+    text-align: center;
+    margin-bottom: 1.5rem;
+`
 
 export const TooltipIcon = styled.i`
     position: absolute;

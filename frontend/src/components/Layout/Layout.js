@@ -1,12 +1,15 @@
-import { Container } from './Elements'
+import { Container, Main } from './Elements'
 import SecondarySideBar from './SecondarySideBar/SecondarySideBar'
 import SideBar from './SideBar/SideBar'
 
 const Layout = ({ children }) => {
+    
     return (
         <Container>
             <SideBar />
-            {children}
+            <Main>
+                {children}
+            </Main>
             <SecondarySideBar />
         </Container>
     )

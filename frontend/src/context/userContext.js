@@ -10,6 +10,7 @@ const UserContext = ({ children }) => {
         role: '',
         email: '',
         name: '',
+        api: '',
     })
 
     return (
