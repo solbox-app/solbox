@@ -1,5 +1,7 @@
 import { GrArticle, GrSend } from 'react-icons/gr'
 import { RiSettingsLine } from 'react-icons/ri'
+import { BiLogInCircle, BiLogOutCircle } from 'react-icons/bi'
+import { MdOutlineSpaceDashboard } from 'react-icons/md'
 import {
     Container,
     Inner,
@@ -16,7 +18,7 @@ import {
 
 const SideBar = () => {
     return (
-        <Container> 
+        <Container>
             <Inner>
                 <Head>
                     <Logo src="assets/logos/logo-light-blue.png" alt="solbox logo" />
@@ -24,6 +26,10 @@ const SideBar = () => {
                 <Body>
                     <Links>
                         <LinkContainer to="/">
+                            <LinkIcon><MdOutlineSpaceDashboard /></LinkIcon>
+                            <LinkLabel>Escritorio</LinkLabel>
+                        </LinkContainer>
+                        <LinkContainer to="/blog">
                             <LinkIcon><GrArticle /></LinkIcon>
                             <LinkLabel>Blog</LinkLabel>
                         </LinkContainer>
@@ -35,12 +41,20 @@ const SideBar = () => {
                             <LinkIcon><RiSettingsLine /></LinkIcon>
                             <LinkLabel>Config.</LinkLabel>
                         </LinkContainer>
+                        <LinkContainer to="/login">
+                            <LinkIcon><BiLogInCircle /></LinkIcon>
+                            <LinkLabel>Login</LinkLabel>
+                        </LinkContainer>
+                        <LinkContainer to="/">
+                            <LinkIcon><BiLogOutCircle /></LinkIcon>
+                            <LinkLabel>Logout</LinkLabel>
+                        </LinkContainer>
                     </Links>
                 </Body>
                 <Footer>
                     <Links>
-                        <FooterLink to="/">Políticas de privacidad</FooterLink>
-                        <FooterLink to="/">Términos y condiciones</FooterLink>
+                        <FooterLink to="/politicas-confidencialidad">Política de confidencialidad</FooterLink>
+                        <FooterLink to="/">Sitio web de Solbox</FooterLink>
                     </Links>
                 </Footer>
             </Inner>

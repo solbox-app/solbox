@@ -7,7 +7,8 @@ export const Button = styled.div`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--dark-gray);
+    color: #fff;
+    background-color: var(--main-blue);
     border-radius: 3px;
     transition: opacity .2s;
 

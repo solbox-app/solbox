@@ -16,7 +16,7 @@ export const Inner = styled.div`
     height: calc(100vh - 1rem);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
     /* background-color: #ededed;
     border-radius: var(--border-radius); */
@@ -24,15 +24,15 @@ export const Inner = styled.div`
 
 export const Head = styled.div`
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     padding-top: .5rem;
     height: 6rem;
 `
 
 export const Logo = styled.img`
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     object-fit: contain;
 `
 
@@ -49,7 +49,6 @@ export const Links = styled.nav`
 export const LinkContainer = styled(Link)`
     display: flex;
     margin-bottom: 1rem;
-    padding: 0 1rem;
 `
 
 export const LinkIcon = styled.i`
@@ -67,12 +66,11 @@ export const LinkLabel = styled.span`
 
 export const Footer = styled.div`
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-start;
     padding-bottom: 1rem;
 `
 
 export const FooterLink = styled(Link)`
     font-size: .7rem;
-    padding: 0 1rem;
     margin-bottom: .2rem;
 `

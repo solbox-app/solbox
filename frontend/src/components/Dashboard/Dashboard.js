@@ -1,13 +1,10 @@
-import SideBar from "../SideBar/SideBar"
-import Center from './Center/Center'
-import SecondarySideBar from "../SecondarySideBar/SecondarySideBar"
 import { useUserContext } from "../../context/userContext"
 import { useEffect } from "react"
-import { redirect } from "react-router-dom"
+// import { redirect } from "react-router-dom"
 import { Navigate } from "react-router-dom"
-import { 
-  Container,
-} from './Element'
+import Notification from "./Notification/Notification"
+import Body from "./Body/Body"
+import { Container } from './Element'
 
 const Dashboard = () => {
 
@@ -19,9 +16,8 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <SideBar />
-      <Center />
-      <SecondarySideBar />
+      <Notification />
+      <Body />
     </Container>
   )
 }

@@ -21,8 +21,8 @@ const stretch = keyframes`
 `
 
 const Svg = styled.svg`
-    height: 16px;
-    width: 16px;
+    height: ${({h}) => h ? h : '16px'};
+    width: ${({w}) => w ? w : '16px'};
     vertical-align: middle;
     transform-origin: center;
     animation: ${rotate} 2s linear infinite;
@@ -30,17 +30,17 @@ const Svg = styled.svg`
 
 const Circle = styled.circle`
     fill: none;
-    stroke: #fff;
+    stroke: ${({color}) => color ? color : '#fff'};
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     stroke-linecap: round;
     animation: ${stretch} calc(2s * 0.75) ease-in-out infinite;
 `
 
-const Loader = () => {
+const Loader = ({ w, h, color }) => {
     return (
-        <Svg viewBox="25 25 50 50" stroke-width="5">
-            <Circle cx="50" cy="50" r="20" />
+        <Svg viewBox="25 25 50 50" stroke-width="5" w={w} h={h}>
+            <Circle cx="50" cy="50" r="20" color={color} />
         </Svg>
     )
 }

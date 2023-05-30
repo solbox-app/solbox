@@ -15,7 +15,8 @@ import {
     ButtonsContainer,
     Button,
     TooltipIcon,
-    TooltipText
+    TooltipText,
+    Logo
 } from './Elements'
 import Loader from '../Loader/Loader'
 
@@ -62,7 +63,6 @@ const Login = () => {
     // }, [type])
 
     const handleClick = () => {
-        console.log('hola')
         const t = type === 'signin' ? 'signup' : 'signin'
         setType(t)
     }
@@ -70,6 +70,7 @@ const Login = () => {
     return (
         <Container>
             <FormContainer>
+            <Logo src="assets/logos/solbox-app.png" />
                 <Form noValidate onSubmit={formik.handleSubmit}>
                     <InputContainer>
                         <Input

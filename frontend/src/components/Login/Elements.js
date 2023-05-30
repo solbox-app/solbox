@@ -9,15 +9,28 @@ export const Container = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    z-index: 999;
 `
 
 export const FormContainer = styled.div`
     width: 20rem;
     height: 20rem;
-    padding: 2rem;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
     border: 1px solid var(--soft-gray);
     border-radius: var(--border-radius);
+`
+
+export const Logo = styled.img`
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    margin: 0 auto 1rem auto;
 `
 
 export const Form = styled.form`
@@ -32,7 +45,7 @@ export const InputContainer = styled.div`
 `
 
 export const Input = styled.input`
-    height: 2rem;
+    height: 2.5rem;
     width: 100%;
     padding: 0 1rem;
     font-size: 1rem;
