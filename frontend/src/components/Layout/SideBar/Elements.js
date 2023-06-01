@@ -4,6 +4,17 @@ import { Link } from 'react-router-dom'
 export const Container = styled.aside`
     position: relative;
     width: 10rem;
+    transition: all .3s ease-in-out;
+
+    @media all and (max-width: 550px) {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: ${({mobileMenuOpen}) => mobileMenuOpen ? '0' : '-100%'};
+        background-color: #fff;
+        z-index: 900;
+    }
 `
 
 export const Inner = styled.div`
@@ -20,11 +31,18 @@ export const Inner = styled.div`
     justify-content: center;
     /* background-color: #ededed;
     border-radius: var(--border-radius); */
+
+    @media all and (max-width: 550px) {
+        position: relative;
+        width: 20rem;
+        max-width: 50%;
+        top: 0;
+        left: 1rem;
+    }
 `
 
 export const Head = styled.div`
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     padding-top: .5rem;
     height: 6rem;
@@ -89,4 +107,18 @@ export const FooterLink = styled(Link)`
     font-size: .7rem;
     margin-bottom: .2rem;
     letter-spacing: .5px;
+`
+
+export const MobileClose = styled.div`
+    position: absolute;
+    top: 1.8rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 950;
+
+    @media all and (min-width: 550px) {
+        display: none;
+    }
 `

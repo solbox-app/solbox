@@ -20,16 +20,24 @@ export const FormContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    border: 1px solid var(--soft-gray);
+    box-shadow: var(--shadow);
     border-radius: var(--border-radius);
+
+    @media all and (max-width: 400px) {
+        box-shadow: none;
+    }
 `
 
 export const Logo = styled.img`
     width: 5rem;
     height: 5rem;
     object-fit: contain;
-    margin: 0 auto 1rem auto;
+    margin: 1rem auto 2rem auto;
+
+    @media all and (max-wdidth: 550px) {
+        width: 4rem;
+        height: 4rem;
+    }
 `
 
 export const Form = styled.form`

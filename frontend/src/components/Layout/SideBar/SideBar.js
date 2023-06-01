@@ -15,33 +15,39 @@ import {
     Footer,
     LinkLabel,
     FooterLink,
+    MobileClose,
 } from './Elements'
 
-const SideBar = () => {
+const SideBar = ({ mobileMenuOpen, setMobileMenuOpen}) => {
 
     const [active, setActive] = useState("")
 
+    const handleLinkClick = (id) => {
+        setActive(id)
+        setMobileMenuOpen(!mobileMenuOpen)
+    }
+
     return (
-        <Container>
+        <Container mobileMenuOpen={mobileMenuOpen} >
             <Inner>
                 <Head>
                     <Logo src="assets/logos/logo-light-blue.png" alt="solbox logo" />
                 </Head>
                 <Body>
                     <Links>
-                        <LinkContainer to="/" onClick={() => setActive("dash")} active={active === "dash"}>
+                        <LinkContainer to="/" onClick={() => handleLinkClick("dash")} active={active === "dash"}>
                             <LinkIcon><MdOutlineSpaceDashboard /></LinkIcon>
                             <LinkLabel>Escritorio</LinkLabel>
                         </LinkContainer>
-                        <LinkContainer to="/blog" onClick={() => setActive("blog")} active={active === "blog"}>
+                        <LinkContainer to="/blog" onClick={() => handleLinkClick("blog")} active={active === "blog"}>
                             <LinkIcon><GrArticle /></LinkIcon>
                             <LinkLabel>Blog</LinkLabel>
                         </LinkContainer>
-                        <LinkContainer to="/" onClick={() => setActive("contact")} active={active === "contact"}>
+                        <LinkContainer to="/" onClick={() => handleLinkClick("contact")} active={active === "contact"}>
                             <LinkIcon><GrSend /></LinkIcon>
                             <LinkLabel>Contacto</LinkLabel>
                         </LinkContainer>
-                        <LinkContainer to="/" onClick={() => setActive("config")} active={active === "config"}>
+                        <LinkContainer to="/" onClick={() => handleLinkClick("config")} active={active === "config"}>
                             <LinkIcon><RiSettingsLine /></LinkIcon>
                             <LinkLabel>Config.</LinkLabel>
                         </LinkContainer>
@@ -49,7 +55,7 @@ const SideBar = () => {
                             <LinkIcon><BiLogInCircle /></LinkIcon>
                             <LinkLabel>Login</LinkLabel>
                         </LinkContainer>
-                        <LinkContainer to="/" onClick={() => setActive()}>
+                        <LinkContainer to="/" onClick={() => handleLinkClick("")}>
                             <LinkIcon><BiLogOutCircle /></LinkIcon>
                             <LinkLabel>Logout</LinkLabel>
                         </LinkContainer>
@@ -62,6 +68,11 @@ const SideBar = () => {
                     </Links>
                 </Footer>
             </Inner>
+            {
+                mobileMenuOpen ?
+                <MobileClose onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>X</MobileClose> :
+                null
+            }
         </Container>
     )
 }

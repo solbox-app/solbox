@@ -10,6 +10,10 @@ export const Container = styled.aside`
     height: 100vh;
     display: flex;
     justify-content: center;
+
+    @media all and (max-width: 550px) {
+        display: none;
+    }
 `
 
 export const UserAvatar = styled.button`

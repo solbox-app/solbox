@@ -4,8 +4,8 @@ import { Container } from './Elements'
 const Body = () => {
   return (
     <Container>
-        <div>temp</div>
-        <Map />
+        {/* <div>temp</div>
+        <Map /> */}
     </Container>
   )
 }
