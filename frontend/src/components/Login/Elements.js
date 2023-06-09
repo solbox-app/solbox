@@ -22,6 +22,8 @@ export const FormContainer = styled.div`
     align-items: center;
     box-shadow: var(--shadow);
     border-radius: var(--border-radius);
+    position: relative;
+    bottom: 3rem;
 
     @media all and (max-width: 400px) {
         box-shadow: none;

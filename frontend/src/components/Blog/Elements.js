@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 export const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
 `
 
 export const Card = styled(Link)`
     background-color: #fff;
     position: relative;
     overflow: hidden;
-    min-height: 15rem;
+    min-height: 25rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 `
@@ -29,12 +29,14 @@ export const CardImage = styled.img`
 `
 
 export const Content = styled.div`
-    padding: 2rem;
+    padding: 1rem 2rem 2rem 2rem;
 `
 
 export const Title = styled.h2`
     font-size: 1.2rem;
-    margin-bottom: .7rem;
+    margin-bottom: .9rem;
+    padding-bottom: .7rem;
+    border-bottom: 1px solid var(--soft-gray);
 `
 
 export const Summary = styled.div`

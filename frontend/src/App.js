@@ -8,6 +8,7 @@ import UserContext from './context/userContext'
 import Layout from './components/Layout/Layout'
 import ArticlePage from './components/Article/ArticlePage'
 import PolicyPage from './components/Policy/PolicyPage'
+import Settings from './components/Settings/Settings'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/articulos/:slug" element={<ArticlePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/politicas-confidencialidad" element={<PolicyPage />} />
+            <Route path="/configuracion" element={<Settings />} />
           </Routes>
         </Layout>
       </UserContext>

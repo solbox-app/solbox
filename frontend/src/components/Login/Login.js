@@ -45,7 +45,7 @@ const Login = () => {
         email: '',
         password: '',
         api: '',
-        apiSecret: ''
+        apiSecret: '',
     }
     const forgotSchema = Yup.object({
         email: Yup.string().email('Ingrese un correo adecuado').required('Ingrese un correo'),
@@ -76,6 +76,8 @@ const Login = () => {
         }
     })
 
+    //TODO> RESET FORM IF THERES IS A CHANGE FROM ONE FORM TO THE OTHER
+    //AND THERE ARE ERRORS
     // useEffect(() => {
     //     console.log(formik.errors)
     //     formik.errors = {}

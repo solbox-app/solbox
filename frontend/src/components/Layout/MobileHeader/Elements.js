@@ -7,7 +7,7 @@ export const Container = styled.div`
     align-items: center;
     height: 5rem;
 
-    @media all and (min-width: 550px) {
+    @media all and (min-width: 651px) {
         display: none;
     }
 `

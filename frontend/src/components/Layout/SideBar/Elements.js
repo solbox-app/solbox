@@ -6,7 +6,7 @@ export const Container = styled.aside`
     width: 10rem;
     transition: all .3s ease-in-out;
 
-    @media all and (max-width: 550px) {
+    @media all and (max-width: 650px) {
         position: fixed;
         width: 100%;
         height: 100%;
@@ -32,9 +32,9 @@ export const Inner = styled.div`
     /* background-color: #ededed;
     border-radius: var(--border-radius); */
 
-    @media all and (max-width: 550px) {
+    @media all and (max-width: 650px) {
         position: relative;
-        width: 20rem;
+        width: 11rem;
         max-width: 50%;
         top: 0;
         left: 1rem;
@@ -111,14 +111,22 @@ export const FooterLink = styled(Link)`
 
 export const MobileClose = styled.div`
     position: absolute;
-    top: 1.8rem;
+    top: 1.6rem;
     right: 1rem;
     width: 2rem;
     height: 2rem;
     cursor: pointer;
     z-index: 950;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    svg {
+        color: var(--dark-gray);
+        font-size: 1.6rem;
+    }
 
-    @media all and (min-width: 550px) {
+    @media all and (min-width: 650px) {
         display: none;
     }
 `

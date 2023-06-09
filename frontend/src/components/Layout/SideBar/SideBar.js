@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { GrArticle, GrSend } from 'react-icons/gr'
 import { RiSettingsLine } from 'react-icons/ri'
 import { BiLogInCircle, BiLogOutCircle } from 'react-icons/bi'
 import { MdOutlineSpaceDashboard } from 'react-icons/md'
+import { AiFillCloseCircle } from 'react-icons/ai'
 import {
     Container,
     Inner,
@@ -20,12 +22,22 @@ import {
 
 const SideBar = ({ mobileMenuOpen, setMobileMenuOpen}) => {
 
+    const { pathname } = useLocation()
     const [active, setActive] = useState("")
 
     const handleLinkClick = (id) => {
         setActive(id)
         setMobileMenuOpen(!mobileMenuOpen)
     }
+
+    useEffect(() => {
+
+        pathname === '/' && setActive("dash")
+        pathname === '/blog' && setActive("blog")
+        pathname === '/contacto' && setActive("contact")
+        pathname === '/configuracion' && setActive("config")
+
+    }, [])
 
     return (
         <Container mobileMenuOpen={mobileMenuOpen} >
@@ -47,7 +59,7 @@ const SideBar = ({ mobileMenuOpen, setMobileMenuOpen}) => {
                             <LinkIcon><GrSend /></LinkIcon>
                             <LinkLabel>Contacto</LinkLabel>
                         </LinkContainer>
-                        <LinkContainer to="/" onClick={() => handleLinkClick("config")} active={active === "config"}>
+                        <LinkContainer to="/configuracion" onClick={() => handleLinkClick("config")} active={active === "config"}>
                             <LinkIcon><RiSettingsLine /></LinkIcon>
                             <LinkLabel>Config.</LinkLabel>
                         </LinkContainer>
@@ -70,7 +82,7 @@ const SideBar = ({ mobileMenuOpen, setMobileMenuOpen}) => {
             </Inner>
             {
                 mobileMenuOpen ?
-                <MobileClose onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>X</MobileClose> :
+                <MobileClose onClick={() => setMobileMenuOpen(!mobileMenuOpen)}><AiFillCloseCircle /></MobileClose> :
                 null
             }
         </Container>
