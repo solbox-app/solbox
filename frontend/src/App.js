@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { ApolloProvider } from '@apollo/client'
 import client from './lib/apollo'
+import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes'
 import Dashboard from './components/Dashboard/Dashboard'
 import BlogPage from './components/Blog/BlogPage'
 import LoginPage from './components/Login/LoginPage'
@@ -17,12 +18,14 @@ function App() {
       <UserContext>
         <Layout>
           <Routes>
-            <Route index element={<Dashboard />} />
+            <Route element={<PrivateRoutes />}>
+              <Route index element={<Dashboard />} />
+              <Route path="/configuracion" element={<Settings />} />
+            </Route>
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/articulos/:slug" element={<ArticlePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/politicas-confidencialidad" element={<PolicyPage />} />
-            <Route path="/configuracion" element={<Settings />} />
           </Routes>
         </Layout>
       </UserContext>

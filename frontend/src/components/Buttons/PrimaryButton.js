@@ -11,6 +11,7 @@ export const Button = styled.div`
     background-color: var(--main-blue);
     border-radius: 3px;
     transition: opacity .2s;
+    font-size: 1rem;
 
     &:hover {
         opacity: .7;
