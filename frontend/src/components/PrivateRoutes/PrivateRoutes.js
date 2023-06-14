@@ -1,12 +1,12 @@
 import { Navigate, Outlet } from 'react-router-dom'
+import { GetUserContext } from '../../context/userContext'
 
 const PrivateRoutes = () => {
 
-    //TEMP
-    const token = false
+    const { user } = GetUserContext()
 
     return (
-        token ?
+        user.isLogged ?
         <Outlet /> : 
         <Navigate to="/login" />
     )

@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react"
 
 const UserCtx = createContext()
-export const useUserContext = () => useContext(UserCtx)
+export const GetUserContext = () => useContext(UserCtx)
 
 const UserContext = ({ children }) => {
 
     const [user, setUser] = useState({
-        isLogged: false,
+        isLogged: true,
         role: '',
         email: '',
         name: '',

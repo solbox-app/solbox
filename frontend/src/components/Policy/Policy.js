@@ -9,8 +9,6 @@ import {
 
 const Policy = ({ data, loading, error }) => {
 
-    console.log(data)
-
     if(loading || error) return <LoaderContainer>{ loading ? <Loader /> : <p>No se puede mostrar el contenido</p>}</LoaderContainer>
     
     return (

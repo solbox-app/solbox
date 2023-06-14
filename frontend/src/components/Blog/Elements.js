@@ -16,9 +16,21 @@ export const Card = styled(Link)`
     box-shadow: var(--shadow);
 `
 
-export const CardImageContainer = styled.div`
-    height: 8rem;
+export const CardImagePlaceholder = styled.div`
+    height: 10rem;
     width: 100%;
+    background-color: #ededed;
+    display: grid;
+    place-items: center;
+`
+
+export const Placeholder = styled.i`
+    text-align: center;
+
+    svg {
+        font-size: 4rem;
+        opacity: .3;
+    }
 `
 
 export const CardImage = styled.img`
