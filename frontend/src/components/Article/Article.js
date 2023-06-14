@@ -1,8 +1,11 @@
 import Loader from '../Loader/Loader'
+import { BsCardImage } from 'react-icons/bs'
 import {
     Container,
     Head,
     HeroImage,
+    HeroPlaceholder,
+    Placeholder,
     Overlay,
     TextContainer,
     Title,
@@ -21,7 +24,13 @@ const Article = ({ post, loading, error }) => {
     return (
         <Container>
             <Head>
-                <HeroImage src={post.featuredImage.node.sourceUrl} alt="" />
+                {
+                  post.featuredImage !== null ?
+                  <HeroImage src={post.featuredImage.node.sourceUrl} alt="" /> :
+                  <HeroPlaceholder>
+                    <Placeholder><BsCardImage /></Placeholder>
+                  </HeroPlaceholder>
+                }
                 <Overlay />
                 <TextContainer>
                     <Subtitle>Solbox Blog</Subtitle>

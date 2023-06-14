@@ -8,7 +8,27 @@ export const Container = styled.article`
 export const Head = styled.div`
     position: relative;
     width: 100%;
-    height: 20rem;
+    height: 27rem;
+`
+
+export const HeroPlaceholder = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+`
+
+export const Placeholder = styled.i`
+    text-align: center;
+
+    svg {
+        font-size: 10rem;
+        opacity: .1;
+    }
 `
 
 export const HeroImage = styled.img`
@@ -65,7 +85,20 @@ export const Body = styled.div`
 `
 
 export const Content = styled.div`
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+    }
+
     p {
+        font-size: 1.2rem;
+    }
+
+    span {
         font-size: 1.2rem;
     }
 `

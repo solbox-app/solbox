@@ -21,9 +21,6 @@ const Blog = ({ posts, loading, error }) => {
           [...Array(12)].map((item, index) => <Card key={index}><Skeleton /></Card>)
           :
           posts.map(post => {
-
-            console.log(post)
-
             return (
               <Card key={post.node.date} to={`/articulos/${post.node.slug}`}>
                 {
